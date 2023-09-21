@@ -1,4 +1,19 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC ## Deploy LLaMa 2 Chat Model on Databricks Model Serving
+# MAGIC <hr/>
+# MAGIC <img src="https://promptengineeringdbl.blob.core.windows.net/img/header.png"/>
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC
+# MAGIC ## Overview
+# MAGIC
+# MAGIC In this notebook, we will deploy a **LLaMA V2 7b Chat** model as a realtime serving endpoint using Databricks Model Serving with GPU Support.
+
+# COMMAND ----------
+
 !pip install --upgrade transformers
 !pip install --upgrade accelerate
 !pip install --upgrade mlflow
@@ -21,7 +36,7 @@ huggingface_hub.login()
 
 # COMMAND ----------
 
-model = "meta-llama/Llama-2-7b-chat-hf"
+model = "meta-llama/Llama-2-13b-chat-hf"
 repository = huggingface_hub.snapshot_download(repo_id=model, ignore_patterns="*.safetensors*")
 
 # COMMAND ----------
